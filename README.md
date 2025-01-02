@@ -50,20 +50,20 @@ The project uses the Sentiment140 dataset `training.1600000.processed.noemoticon
 
 #### Model Training Parameters
 
-- **Batch Size: **16
-- **Learning Rate: **2e-5
-- **Epochs: **2
-- **Evaluation Strategy: **Evaluate every 500 steps
-- **Save Strategy: **Save at the end
-- **Logging Steps**: Logs training metrics every 100 steps
+- Batch Size: 16
+- Learning Rate: 2e-5
+- Epochs: 2
+- Evaluation Strategy: Evaluate every 500 steps
+- Save Strategy: Save at the end
+- Logging Steps: Logs training metrics every 100 steps
 
 #### Saved Outputs
 
-- **Model: **`bert_sentiment_model/model.safetensors`
-- **Tokenizer: **`bert_sentiment_model/tokenizer_config.json`
-- **Configuration: **`bert_sentiment_model/config.json`
-- **Special Tokenizer: **`bert_sentiment_model/special_tokens_map.json`
-- **Vocabulary:** `bert_sentiment_model/vocab.txt`
+- Model: `bert_sentiment_model/model.safetensors`
+- Tokenizer: `bert_sentiment_model/tokenizer_config.json`
+- Configuration: `bert_sentiment_model/config.json`
+- Special Tokenizer: `bert_sentiment_model/special_tokens_map.json`
+- Vocabulary: `bert_sentiment_model/vocab.txt`
 
 ## License
 
@@ -74,9 +74,7 @@ This project is licensed under the [MIT License](LICENSE)
 - [Hugging Face Transformers](https://github.com/huggingface/transformers)
 - Sentiment140 dataset for providing the labeld data for sentiment analysis.
 
-## Using the Pre-Trained Model
-
-A pre-trained BERT model for sentiment analysis is available in this repository. You can use it to make predictions or evaluate a dataset without retraining the model.
+## When you use the Pre-Trained Model
 
 #### Model Files
 
@@ -105,16 +103,24 @@ The pre-trained model and tokenizer are stored in the`bert_sentiment_model `dire
    pip install transformers torch
    ```
 
-3. Change `text`in `test.py `file into an English sentence with strong emotions and run it. 
+3. Run the script to use the model:
 
    ```python
    python test BERT.py
    ```
 
-   Example:
+   You will see the following prompt:
 
-   ```python
-   text = "What a happy day!"
+   ```bash
+   Sentiment Prediction Script
+   Please enter a sentence to analyze:
+   >> 
+   ```
+
+   If you enter:
+
+   ```bash
+   What a happy day!
    ```
 
    The expected output will be: 
