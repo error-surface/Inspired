@@ -1,6 +1,6 @@
 # Sentiment Analysis with BERT
 
-This project uses a pre-trained BERT model to perform binary sentiment analysis on a dataset. The model classifies text into two categories: **positive (1)** and **negative (0)**.
+This project uses a pre-trained BERT transformer model to perform binary sentiment analysis on a dataset. The model classifies text into two categories: **positive (1)** and **negative (0)**.
 
 ## Features
 
@@ -11,7 +11,7 @@ This project uses a pre-trained BERT model to perform binary sentiment analysis 
 
 ## Dataset
 
-The project uses the Sentiment140 dataset `training.1600000.processed.noemoticon.csv`, which contains 1.6 million labeled tweets. A subset (10%) of the data is randomly sampled for training and testing.
+The project uses the Sentiment140 dataset `training.1600000.processed.noemoticon.csv`, which contains 1.6 million labeled tweets. A subset (10%) of the data is randomly sampled for training and testing. However, the dataset is not included in the repository so you need to download it from elsewhere. 
 
 #### Data Preprocessing
 
@@ -31,10 +31,10 @@ The project uses the Sentiment140 dataset `training.1600000.processed.noemoticon
 2. Install dependencies:
 
    ```bash
-   pip install pandas scikit-learn transformers datasets
+   pip install pandas scikit-learn transformers datasets torch
    ```
 
-3. Download the Sentiment140 dataset and place it in the root directory as `training.1600000.processed.noemoticon.csv`.
+3. Download the Sentiment140 dataset from elsewhere and place it in the root directory as `training.1600000.processed.noemoticon.csv`.
 
 ## Usage
 
@@ -74,11 +74,11 @@ This project is licensed under the [MIT License](LICENSE)
 - [Hugging Face Transformers](https://github.com/huggingface/transformers)
 - Sentiment140 dataset for providing the labeld data for sentiment analysis.
 
-## When you use the Pre-Trained Model
+##  After the model is trained
 
 #### Model Files
 
-The pre-trained model and tokenizer are stored in the`bert_sentiment_model `directory, which includes the following files:
+The model and tokenizer are stored in the`bert_sentiment_model `directory, which includes the following files:
 
 ​	•	`model.safetensor`: The fine-tuned model’s weights.
 
@@ -90,44 +90,31 @@ The pre-trained model and tokenizer are stored in the`bert_sentiment_model `dire
 
 ​	•    `tokenizer_config.json`: The tokenizer configuration.
 
-1. Clone this repository:
+#### How to use the model
 
-   ```bash
-   git clone https://github.com/error-surface/Inspired.git
-   cd Inspired
-   ```
+Run the script to use the model:
 
-2. Install dependencies:
+```bash
+python test BERT.py
+```
 
-   ```bash
-   pip install transformers torch
-   ```
+You will see the following prompt:
 
-3. Run the script to use the model:
+```bash
+Sentiment Prediction Script
+Please enter a sentence to analyze:
+>> 
+```
 
-   ```python
-   python test BERT.py
-   ```
+For example, if you enter:
 
-   You will see the following prompt:
+```bash
+What a happy day!
+```
 
-   ```bash
-   Sentiment Prediction Script
-   Please enter a sentence to analyze:
-   >> 
-   ```
+The expected output will be: 
 
-   If you enter:
-
-   ```bash
-   What a happy day!
-   ```
-
-   The expected output will be: 
-
-   ```python
-   Text: What a happy day!
-   Predicted Sentiment: Positive
-   ```
-
-   
+```bash
+Text: What a happy day!
+Predicted Sentiment: Positive
+```
